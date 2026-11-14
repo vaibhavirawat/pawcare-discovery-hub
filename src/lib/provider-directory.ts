@@ -142,19 +142,12 @@ export interface ProviderFilters {
   maxDistanceKm?: number;
 }
 
-export function filterProviders(
-  listings: Provider[],
-  filters: ProviderFilters,
-): Provider[] {
+export function filterProviders(listings: Provider[], filters: ProviderFilters): Provider[] {
   const query = filters.query?.trim().toLowerCase() ?? "";
 
   return listings.filter((provider) => {
     if (filters.category && provider.category !== filters.category) return false;
-    if (
-      filters.openOr24x7 &&
-      !provider.isOpenNow &&
-      !provider.is24x7
-    ) {
+    if (filters.openOr24x7 && !provider.isOpenNow && !provider.is24x7) {
       return false;
     }
     if (filters.emergencyAmbulance && provider.category !== "Ambulances") return false;

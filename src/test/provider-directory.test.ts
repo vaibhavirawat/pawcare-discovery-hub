@@ -8,9 +8,9 @@ describe("PawCare discovery filters", () => {
   });
 
   it("filters providers to a chosen category", () => {
-    expect(filterProviders(providers, { category: "Pet Boarding" }).map((item) => item.id)).toEqual([
-      "little-paws-stay",
-    ]);
+    expect(filterProviders(providers, { category: "Pet Boarding" }).map((item) => item.id)).toEqual(
+      ["little-paws-stay"],
+    );
   });
 
   it("shows providers that are open now or available around the clock", () => {
@@ -24,9 +24,9 @@ describe("PawCare discovery filters", () => {
   });
 
   it("restricts emergency ambulance results to ambulance providers", () => {
-    expect(filterProviders(providers, { emergencyAmbulance: true }).map((item) => item.id)).toEqual([
-      "swift-tails-ambulance",
-    ]);
+    expect(filterProviders(providers, { emergencyAmbulance: true }).map((item) => item.id)).toEqual(
+      ["swift-tails-ambulance"],
+    );
   });
 
   it("matches any selected animal type", () => {
